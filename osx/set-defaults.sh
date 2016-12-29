@@ -7,26 +7,11 @@
 # ~/dotfiles/osx/set-defaults.sh — http://mths.be/osx
 #
 
-# Set computer name
-COMPUTERNAME="Nick Plekhanov's MBP"
-HOSTNAME='mbp'
-LOCALHOSTNAME='mbp'
-
 # Ask for the administrator password upfront
 sudo -v
 
 # Keep-alive: update existing `sudo` time stamp until `.osx` has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
-###############################################################################
-# General UI/UX                                                               #
-###############################################################################
-
-# Set computer name (as done via System Preferences → Sharing)
-#sudo scutil --set ComputerName $COMPUTERNAME
-#sudo scutil --set HostName $HOSTNAME
-#sudo scutil --set LocalHostName $LOCALHOSTNAME
-#sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string $LOCALHOSTNAME
 
 ###############################################################################
 # Apple software: Safari, Updater, iTunes, etc.                               #
@@ -105,16 +90,16 @@ defaults -currentHost write -g com.apple.trackpad.trackpadCornerClickBehavior -i
 defaults -currentHost write com.apple.trackpad.enableSecondaryClick -bool true
 
 # Set a really fast keyboard repeat rate.
-defaults write -g KeyRepeat -int 0
+#defaults write -g KeyRepeat -int 0
 
 # Disable press-and-hold for keys in favor of key repeat.
-defaults write -g ApplePressAndHoldEnabled -bool false
+#defaults write -g ApplePressAndHoldEnabled -bool false
 
 # Set language and text formats. (USD and Imperial Units)
-defaults write -g AppleLanguages -array "en" "nl"
-defaults write -g AppleLocale -string "en_US@currency=USD"
-defaults write -g AppleMeasurementUnits -string "Inches"
-defaults write -g AppleMetricUnits -bool false
+#defaults write -g AppleLanguages -array "en" "nl"
+#defaults write -g AppleLocale -string "en_US@currency=USD"
+#defaults write -g AppleMeasurementUnits -string "Inches"
+#defaults write -g AppleMetricUnits -bool false
 
 ###############################################################################
 # Screen
@@ -150,7 +135,7 @@ defaults write NSGlobalDomain AppleFontSmoothing -int 2
 # Disable and kill Dashboard
 # Can be reverted with:
 # defaults write com.apple.dashboard mcx-disabled -boolean NO; killall Doc
-defaults write com.apple.dashboard mcx-disabled -boolean YES; killall Dock
+#defaults write com.apple.dashboard mcx-disabled -boolean YES; killall Dock
 
 # Disable icons on the Desktop
 # This will "hide" all the files on the Desktop, but one can still access
@@ -207,7 +192,7 @@ defaults write com.apple.CrashReporter DialogType -string "none"
 ###############################################################################
 
 # Disable the sudden motion sensor as it’s not useful for SSDs
-sudo pmset -a sms 0
+# sudo pmset -a sms 0
 
 ###############################################################################
 # Dock
